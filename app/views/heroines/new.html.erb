@@ -1,20 +1,31 @@
+<% stylesheet_link_tag "/stylesheets/style"%>
+
 <h1>Create A New Superheroine</h1>
+
+<% if @heroine.errors %>
+  <div class="error_readout">
+    <% @heroine.errors.each do |atr, msg| %>
+      <%= "#{atr} #{msg}" %> <br>
+    <% end %>
+  </div>
+
+<% end %>
 
 <%= form_for @heroine do |f| %>
 
   <div>
-    <%= f.label :name %>
+    <%= f.label :name %> <br>
     <%= f.text_field :name%>
   </div>
   <div>
-    <%= f.label :super_name %>
+    <%= f.label "Super Name" %> <br>
     <%= f.text_field :super_name%>
   </div>
   <div>
-    <%= f.label "Power" %><br>
     <%= f.collection_select :power_id, Power.all, :id, :name%>
+    <%= f.submit "Create Heroine" %>
   </div>
 
-  <%= f.submit "Create New Heroine" %>
+
 
 <% end %>
