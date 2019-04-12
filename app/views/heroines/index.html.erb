@@ -8,11 +8,9 @@
 
 <ul>
   <% @heroines.each do |heroine| %>
-    <% if !@search || heroine.power.name == @search %>
       <li>
         <%= link_to heroine.super_name, heroine_path(heroine) %>
       </li>
       <br>
-    <% end %>
   <% end %>
 </ul>

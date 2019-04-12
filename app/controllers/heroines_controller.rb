@@ -2,7 +2,7 @@ class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
     if params[:search] && !params[:search].empty?
-      @search = params[:search]
+      @heroines = Heroine.joins(:power).where(:powers => {:name => params[:search]})
     end
   end
 
