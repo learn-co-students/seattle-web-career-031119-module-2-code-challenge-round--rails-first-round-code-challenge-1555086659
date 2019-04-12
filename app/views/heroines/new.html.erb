@@ -1,8 +1,9 @@
 <h1> New Heroine: </h1>
 
+<% #this error handler is from the documentation online, not written by me %>
 <% if @heroine.errors.any? %>
   <div id="error_explanation">
-    <p><%= pluralize(@heroine.errors.count, "error") %> prohibited this heroine from being saved:</p>
+    <em style="color:red;"><%= pluralize(@heroine.errors.count, "error") %> prohibited this heroine from being saved:</em>
     <ul>
     <% @heroine.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

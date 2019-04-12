@@ -20,9 +20,21 @@ class HeroinesController < ApplicationController
     end
   end
 
+  def search
+    @heroines_all = Heroine.all
+    @heroines = @heroines_all.select do |heroine|
+      search_value == heroine.power.name
+    end
+    render :index
+  end
+
   private
 
   def heroine_attributes
     params.require(:heroine).permit!
+  end
+
+  def search_value
+    params.require(:q)
   end
 end
