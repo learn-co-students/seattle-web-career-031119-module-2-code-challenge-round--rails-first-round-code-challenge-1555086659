@@ -1,7 +1,6 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
-    @p = params
   end
 
   def show
