@@ -1,6 +1,9 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+    if params[:search] && !params[:search].empty?
+      @search = params[:search]
+    end
   end
 
   def show
