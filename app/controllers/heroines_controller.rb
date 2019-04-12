@@ -1,6 +1,7 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+    @p = params
   end
 
   def show
@@ -14,6 +15,10 @@ class HeroinesController < ApplicationController
   def create
     @heroine = Heroine.create(heroine_params)
     redirect_to heroine_path(@heroine)
+  end
+
+  def search
+    @p = params
   end
 
   private
