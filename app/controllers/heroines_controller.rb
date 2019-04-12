@@ -23,7 +23,7 @@ class HeroinesController < ApplicationController
   def search
     @heroines_all = Heroine.all
     @heroines = @heroines_all.select do |heroine|
-      search_value == heroine.power.name
+      heroine.power.name.include?(search_value)
     end
     render :index
   end

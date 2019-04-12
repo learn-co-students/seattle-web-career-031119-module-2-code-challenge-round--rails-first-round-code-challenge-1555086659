@@ -1,6 +1,7 @@
 <h1> New Heroine: </h1>
 
-<% #this error handler is from the documentation online, not written by me %>
+<% # this error displayer is from the documentation, not written by me %>
+
 <% if @heroine.errors.any? %>
   <div id="error_explanation">
     <em style="color:red;"><%= pluralize(@heroine.errors.count, "error") %> prohibited this heroine from being saved:</em>
@@ -17,6 +18,7 @@
   <%= f.text_field :name %><br>
   <%= f.label :super_name %><br>
   <%= f.text_field :super_name %><br>
-  <%= f.collection_select(:power_id, Power.all, :id, :name) %>
+  <%= f.collection_select(:power_id, Power.all, :id, :name) %><br>
+
   <%= f.submit %>
 <% end %>
