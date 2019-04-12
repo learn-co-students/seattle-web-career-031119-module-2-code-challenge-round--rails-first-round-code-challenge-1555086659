@@ -1,0 +1,18 @@
+<% if !@power_choice %>
+   Sorry, we cannot find that super power please
+  <%= link_to "go back to index page", heroines_path %>
+
+
+<% else %>
+
+<h2>The following heroines have the superpower " <%= @power_choice.name %> "</h2>
+<ul>
+<% @heroines_by_power.each do |h| %>
+<li>
+<%= link_to h.super_name, heroine_path(h) %> <br>
+</li>
+<br>
+<% end %>
+</ul>
+
+<% end %>

@@ -1,4 +1,5 @@
 class HeroinesController < ApplicationController
+
   def index
     @heroines = Heroine.all
   end
@@ -20,6 +21,16 @@ class HeroinesController < ApplicationController
       render :new
     end
     # redirect_to heroines_path
+  end
+
+  def search
+    # byebug
+    @power_choice = Power.all.find do |p|
+      p.name == params[:power_search]
+    end
+    @heroines_by_power = Heroine.all.select do |h|
+      h.power == @power_choice
+    end
   end
 
   private
