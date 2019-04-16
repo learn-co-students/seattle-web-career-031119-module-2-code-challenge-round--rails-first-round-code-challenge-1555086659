@@ -6,3 +6,6 @@
 <h3>AKA: <%= @heroine.super_name %></h3>
 
 <h3>Power: <%= link_to @heroine.power.name, power_path(@heroine.power_id) %></h3>
+
+<p><%= link_to "Edit heroine", edit_heroine_path(@heroine) %></p>
+<p><%= link_to "Back to all Heroines", heroines_path %></p>

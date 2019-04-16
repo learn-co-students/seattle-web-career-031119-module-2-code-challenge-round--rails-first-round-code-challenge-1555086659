@@ -20,24 +20,6 @@ class PowersController < ApplicationController
     end
   end
 
-  # def edit
-  #   @power = Power.find(params[:id])
-  # end
-  #
-  # def update
-  #   @power = Power.find(params[:id])
-  #   if @power.update(power_params)
-  #     redirect_to @power
-  #   else
-  #     render :edit
-  #   end
-  # end
-  #
-  # def destroy
-  #   @power = Power.find(params[:id])
-  #   @power.destroy
-  # end
-
   private
 
     def power_params

@@ -1,6 +1,8 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+    # @search = Heroine.find(params[:id])
+    # @heroines = Heroine.by_power(@search.power)
   end
 
   def show
@@ -20,25 +22,27 @@ class HeroinesController < ApplicationController
       render :new
     end
   end
-  #
-  # def edit
-  #   @heroine = Heroine.find(params[:id])
-  # end
 
-  # def update
-  #   @heroine = Heroine.find(params[:id])
-  #   if @herione.update(heroine_params)
-  #     flash[:message] = "Superheroine Updated!"
-  #     redirect_to @heroine
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def edit
+    @heroine = Heroine.find(params[:id])
+  end
 
-  # def destroy
-  #   @heroine = Heroine.find(params[:id])
-  #   @heroine.destroy
-  # end
+  def update
+    @heroine = Heroine.find(params[:id])
+    if @heroine.update(heroine_params)
+      flash[:message] = "Superheroine Updated!"
+      redirect_to @heroine
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @heroine = Heroine.find(params[:id])
+    @heroine.destroy
+    flash[:message] = "Superheroine Destroyed!"
+    redirect_to heroines_path
+  end
 
 private
 

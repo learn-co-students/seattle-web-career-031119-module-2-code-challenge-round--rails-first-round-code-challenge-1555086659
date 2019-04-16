@@ -1,9 +1,19 @@
+
 <h2>All Heroines</h2>
+
+<h3>Search by Superpower:</h3>
+<% if false %>
+<%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+<%= f.text_field(:power) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<% end %>
+<p><%= flash[:message] %></p>
 
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= link_to heroine.super_name, heroine %>
+      <%= link_to heroine.super_name, heroine %> <%= button_to "Destroy Heroine", heroine_path(heroine), method: :delete, data: {confirm: "Are you sure?"} %>
     </li>
     <br>
   <% end %>
